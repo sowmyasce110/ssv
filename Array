@@ -16,7 +16,7 @@ boolean t=false;
 List<Integer> e=new ArrayList<Integer>();
 
 
-public List<Integer> Method2(int[] a)
+public List<Integer> Method2(int[] a)// passing an array of numbers
 {
 	 int i=0,count,num;
 	 int n1=a.length;
@@ -28,20 +28,21 @@ public List<Integer> Method2(int[] a)
 	 for(i=0;i<a.length;i++)
 	 {
 		  num=a[i];
-		  count=String.valueOf(a[i]).length();
+		  count=String.valueOf(a[i]).length();// counting the number of digits in each number passed in an array a
 		  if(count==1)
-			  e.add(a[i]);
+			  e.add(a[i]);// count is one then simply return back the number because it does not have repeated digits.
 		  else
-		  {
+		  { // if not just pass number and its count value in another method Arrange which is return a boolean value as true if a passed 
+		  // number has repeated digits or else false
 		 //System.out.println("the count value is:"+count);
 		  t=Arrange(num,count);
-		  if(t!=true)
+		  if(t!=true)// if boolean variable is false then add a number to an list denoting as it has unique digits
 			  e.add(a[i]);
 		 
 	      }
 	 }
 	}
-	 return e;
+	 return e;// return back the list of numbers to main method to print
 }
 	
 public boolean Arrange(int n,int c)
@@ -50,14 +51,14 @@ public boolean Arrange(int n,int c)
 	boolean t1=false;
 	int rev=0,i=0,j=0;
 	int[] b=new int[c];
-	while(n>0)
+	while(n>0)// here convert a number into an seperate array b by using modulus and division operator.
 	{
 		rev=n%10;
 		b[i++]=rev;
 		n/=10;
 	}
 	
-	for(i=0;i<b.length;i++)
+	for(i=0;i<b.length;i++)// here sort an array b based on digits of a number
 	{
         j=i+1;
         while(j<b.length)
@@ -73,15 +74,16 @@ public boolean Arrange(int n,int c)
 }
 	
 	
-	for(i=1;i<b.length;i++)
+	for(i=1;i<b.length;i++)// here just loop over of an array b
 	{
 		
-		if(b[i-1]==b[i])
-			t1=true;
+		if(b[i-1]==b[i])// here just check if sorted array b has same digits in next to each other
+			t1=true;// if true of if statement then mark t1 as true and then break the for loop. because if an array has two adjective
+			same digits then a number does not have unique digits.
 		break;
 		
 	}
-	return t1;
+	return t1;// return a boolean value of t1 to previous method as Method2
 }
 }
 2) Here is the main method and I just pass the array of a numbers to above class and print back the non-repeated list numbers back.
@@ -99,7 +101,7 @@ public class Tesrr {
 		System.out.println("the odd numbers are: ");
 		for(int i=0;i<b.size();i++)
 		{
-			//System.out.println(" the odd numbers");
+			System.out.println("the odd numbers");//print a list numbers which has unique digits
 			System.out.print(b.get(i)+" ");
 		}
 
