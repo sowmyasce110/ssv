@@ -1,0 +1,109 @@
+/* Write a program in which contains a list of numbers. print a list of numbers in which conatians a unique digits i.e no repeated digits.
+Like if Input is int[] a={1,23445,678,900,2};
+then output is int[] a={1,678,2};
+
+Here I wrote the java code for above problemand i think it will help you guys.
+
+1) I wrote seperate logic in one class from that class I called the logic applied method from main method which is in another class
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Digits {
+int num=0,j=0,i=0,k=0;
+int[] b=new int[10];
+boolean t=false;
+List<Integer> e=new ArrayList<Integer>();
+
+
+public List<Integer> Method2(int[] a)
+{
+	 int i=0,count,num;
+	 int n1=a.length;
+	 if(n1==1)
+		 e.add(a[n1-1]);
+	 else
+	 {
+		 
+	 for(i=0;i<a.length;i++)
+	 {
+		  num=a[i];
+		  count=String.valueOf(a[i]).length();
+		  if(count==1)
+			  e.add(a[i]);
+		  else
+		  {
+		 //System.out.println("the count value is:"+count);
+		  t=Arrange(num,count);
+		  if(t!=true)
+			  e.add(a[i]);
+		 
+	      }
+	 }
+	}
+	 return e;
+}
+	
+public boolean Arrange(int n,int c)
+
+{
+	boolean t1=false;
+	int rev=0,i=0,j=0;
+	int[] b=new int[c];
+	while(n>0)
+	{
+		rev=n%10;
+		b[i++]=rev;
+		n/=10;
+	}
+	
+	for(i=0;i<b.length;i++)
+	{
+        j=i+1;
+        while(j<b.length)
+        {
+        	if(b[j]<=b[i])
+        	{
+        		int temp=b[j];
+        		b[j]=b[i];
+        		b[i]=temp;
+        	}
+        	j++;
+        }
+}
+	
+	
+	for(i=1;i<b.length;i++)
+	{
+		
+		if(b[i-1]==b[i])
+			t1=true;
+		break;
+		
+	}
+	return t1;
+}
+}
+2) Here is the main method and I just pass the array of a numbers to above class and print back the non-repeated list numbers back.
+   it worked well for me. Thanks for watching this code. Bye guys.
+
+import java.util.List;
+
+public class Tesrr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a={1,789,3456,778900,2345,678,12000,3456};
+		Digits d=new Digits();
+		List<Integer> b=d.Method2(a);
+		System.out.println("the odd numbers are: ");
+		for(int i=0;i<b.size();i++)
+		{
+			//System.out.println(" the odd numbers");
+			System.out.print(b.get(i)+" ");
+		}
+
+	}
+
+}
+
