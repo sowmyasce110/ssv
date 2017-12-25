@@ -79,8 +79,7 @@ public boolean Arrange(int n,int c)
 		
 		if(b[i-1]==b[i])// here just check if sorted array b has same digits in next to each other
 			t1=true;// if true of if statement then mark t1 as true and then break the for loop. because if an array has two adjective
-			same digits then a number does not have unique digits.
-		break;
+			        //same digits then a number does not have unique digits.
 		
 	}
 	return t1;// return a boolean value of t1 to previous method as Method2
